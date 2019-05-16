@@ -18,7 +18,7 @@ public class AtmMachineTest {
     private AtmMachine atmMachine;
     private Money money;
     private Card card;
-    AuthenticationToken token;
+    private AuthenticationToken token;
 
     public AtmMachineTest()
     {
