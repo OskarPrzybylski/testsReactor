@@ -170,4 +170,22 @@ public class AtmMachineTest {
         verify(bankService, times(1)).abort(token);
     }
 
+    @Test
+    public void Check_AtmMachine_Will_Abort_Bank_Operation_If_MoneyDepot_Cannot_Withdraw_Money(){
+        //arrange
+        SetMoneyDepotFalse();
+        SetBankServiceTrue();
+        SetCardProviderServiceReturningToken();
+        //act
+        try{
+            atmMachine = new AtmMachine(cardProviderService,bankService,moneyDepot);
+            atmMachine.withdraw(money, card);
+        }
+        catch(Exception e){
+
+        }
+        //assert
+        verify(bankService, times(1)).abort(token);
+    }
+
 }
